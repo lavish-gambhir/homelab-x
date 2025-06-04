@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taco-deployment
+  labels:
+    app: taco
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: taco
+  template:
+    metadata:
+      labels:
+        app: taco
+    spec:
+      containers:
+        - name: taco
+          image: asia-south1-docker.pkg.dev/analog-grin-461709-r9/homelab-repo/taco:v2
+          ports:
+            - containerPort: 8080
