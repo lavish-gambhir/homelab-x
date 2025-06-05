@@ -17,5 +17,15 @@ spec:
       containers:
         - name: taco
           image: asia-south1-docker.pkg.dev/analog-grin-461709-r9/homelab-repo/taco:v2
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            timeoutSeconds: 1
+            failureThreshold: 1
+            successThreshold: 1
           ports:
             - containerPort: 8080
