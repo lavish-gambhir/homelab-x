@@ -21,7 +21,7 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 30
             httpGet:
-              path: /
+              path: /readyz
               port: 8080
               scheme: HTTP
             timeoutSeconds: 1
@@ -31,7 +31,7 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             httpGet:
-              path: /
+              path: /healthz
               port: 8080
               scheme: HTTP
             timeoutSeconds: 5
